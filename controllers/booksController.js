@@ -2,9 +2,9 @@ const db = require("../models");
 
 // Defining methods for the booksController
 module.exports = {
-  findAllSaved: function (req, res) {
+  findSaved: function () {
     db.Book
-      .find(req.query)
+      .find({})
       .sort({ date: -1 })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));

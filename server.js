@@ -9,10 +9,10 @@ const PORT = process.env.PORT || 3000;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-
+app.use(cors());
 // Add routes, both API and view
 app.use(routes);
-app.use(cors());
+
 // Connect to the Mongo DB
 mongoose.set("debug", true);
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/googlebooks");
